@@ -52,6 +52,18 @@ jobs:
             --disable-shared \
             --with-readline=gnu \
             --without-latex \
+            --without-gd \
+            --without-qt \
+            --without-wx \
+            --without-x \
+            --without-lua \
+            --without-cairo \
+            --disable-wxt \
+            --disable-x11 \
+            --disable-qt \
+            --disable-gpic \
+            --disable-gd \
+            --disable-latex \
             LDFLAGS="-static" \
             CFLAGS="-O2"
           make -j$(nproc)
@@ -71,6 +83,18 @@ jobs:
             --enable-static \
             --disable-shared \
             --with-readline=gnu \
+            --without-latex \
+            --without-gd \
+            --without-qt \
+            --without-wx \
+            --without-x \
+            --without-lua \
+            --without-cairo \
+            --disable-wxt \
+            --disable-x11 \
+            --disable-qt \
+            --disable-gpic \
+            --disable-gd \
             LDFLAGS="-static" \
             CFLAGS="-O2"
           make -j$(sysctl -n hw.logicalcpu)
@@ -85,8 +109,6 @@ jobs:
             mingw-w64-x86_64-make
             mingw-w64-x86_64-pkg-config
             mingw-w64-x86_64-libtool
-            mingw-w64-x86_64-gd
-            mingw-w64-x86_64-lua
             mingw-w64-x86_64-readline
             mingw-w64-x86_64-zlib
             mingw-w64-x86_64-libpng
@@ -104,7 +126,18 @@ jobs:
             --host=x86_64-w64-mingw32 \
             --enable-static \
             --disable-shared \
-            --with-readline=gnu \
+            --without-gd \
+            --without-qt \
+            --without-wx \
+            --without-x \
+            --without-lua \
+            --without-cairo \
+            --disable-wxt \
+            --disable-x11 \
+            --disable-qt \
+            --disable-gpic \
+            --disable-gd \
+            --disable-latex \
             CFLAGS="-static -O2" \
             LDFLAGS="-static"
           make -j$(nproc)
