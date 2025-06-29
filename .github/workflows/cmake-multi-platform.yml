@@ -1,0 +1,60 @@
+name: build-imagec
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build gnuplot
+        env:
+          TAG_NAME: "${{ github.ref_name }}"
+        run: |
+          ./prepare
+          ./configure
+          make
+
+
+  build-macos:
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build gnuplot
+        env:
+          TAG_NAME: "${{ github.ref_name }}"
+        run: |
+          ./prepare
+          ./configure
+          make
+
+  build-windows:
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build gnuplot
+        env:
+          TAG_NAME: "${{ github.ref_name }}"
+        run: |    
+          ./prepare
+          ./configure
+          make
+
+
